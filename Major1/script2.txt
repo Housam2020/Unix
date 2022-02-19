@@ -1,0 +1,31 @@
+#!/bin/bash
+
+
+Filename=`basename $0`
+
+echo "This is script \"$Filename\" of Major Lab 1"
+
+if [ $# -ne 1 ]
+then
+	echo "Incorrect number of command line arguments, execution aborted"
+	exit
+fi
+
+	if [ $1 = "Monday" -o $1 = "Tuesday" ]
+	then
+	echo "$1 greetings will be produced"
+
+	echo "#include <stdio.h>" > greetings.c
+	echo "int main () {" >> greetings.c
+	echo "	printf(\"This is $1 and we greet you here \n\");" >> greetings.c
+	echo "	return 0;" >> greetings.c
+	echo "}" >> greetings.c
+	
+	gcc -o gr greetings.c
+	gr
+	exit
+	
+	else
+	echo "incorrect command line argument, execution aborted"
+	exit
+	fi 

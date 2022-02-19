@@ -1,0 +1,55 @@
+
+
+
+echo "This is script \"`basename $0`\" of Major Lab 2"
+
+if [[ $# -ne 2 ]]; then
+
+	echo "incorrect number of command line arguments, execution aborted"
+	exit;
+fi
+
+echo "The source directory is to be $1 (y/n)"
+read varname
+
+if [[ "$varname" == "n" ]]; then
+
+	echo "you submitted incorrect name for source directory, execution aborted"
+	exit;
+
+elif [[ "$varname" != "y" ]]; then
+	echo "incorrect response, execution aborted"
+	exit;
+fi
+
+
+echo "The destination directory is to be $2 (y/n)"
+read varname2
+
+if [[ "$varname2" == n ]]; then
+
+	echo "you submitted incorrect name for destination directory, execution aborted "
+	exit;
+
+elif [[ "$varname2" != "y" ]]; then
+	echo "incorrect response, execution aborted"
+	exit;
+
+elif [[ "$varname2" == "y" ]]; then
+	echo "moving files from $1 to $2"
+
+	files=`ls $1`
+
+	for i in $files; do
+
+		mv $1/$i $2
+	done
+
+fi
+
+
+
+
+
+
+

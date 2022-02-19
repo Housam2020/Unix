@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+Filename=`basename $0`
+
+echo "This is script \"$Filename\" of Major Lab 1"
+
+Files=`ls`
+
+for f in $Files
+do
+
+	if [ $f = "greetings.c" ]
+	then
+		rm greetings.c
+		doit=1
+	else
+		doit1=0
+	fi
+
+
+	if [ $f = "gr" ]
+	then
+		rm gr
+		doit2=1
+	else
+		doit2=0
+	fi
+
+done
+
+if [ $doit1 -eq 1 -o $doit2 -eq 1 ]
+then
+	echo "cleaning done"
+
+elif [ $doit1 -eq 0 -o $doit2 -eq 0 ]
+then
+echo "nothing to clean"
+fi
+

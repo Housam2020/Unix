@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+Filename=`basename $0`
+Dirname=`dirname $0`
+
+
+echo "This is script \"$Filename\" of Major Lab 1:"
+if [ $# -ne 1 ] 
+then
+
+	echo " incorrect number of command line arguments, execution aborted usage -- $Filename $Dirname"
+	exit	
+fi
+
+
+#Files=`ls`
+
+if [ -d $1 ]
+then
+	echo "$1 direcory exists, deleting all its contents"
+	# Accessing directory
+	cd $1
+	InnerFiles=`ls`
+
+
+	# Removing all files and directories
+		for a in $InnerFiles
+		do
+			if [ -f $a ] 
+			then
+				rm $a	
+			fi
+			if [ -d $a ]
+			then
+				rm -r $a
+			fi
+		done
+
+else
+		echo "$1 directory does not exist, creating it"
+		mkdir $1
+		cd $1
+
+		echo "Im inside" > file1
+		echo "Im also inside" > file2
+		exit
+fi

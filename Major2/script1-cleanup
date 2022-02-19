@@ -1,0 +1,8 @@
+
+
+
+
+echo "This is script \"`basename $0`\" of Major Lab 2"
+
+rm -r A B
+
